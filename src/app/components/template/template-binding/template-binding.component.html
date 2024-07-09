@@ -36,3 +36,15 @@
 <div style="background: red; width:30px; height: 30px; margin-top: 30px;" (mousemove)="OnMouseEvent($event)"></div>
 <hr/>
 <h2>Two-way binding</h2>
+<input [(ngModel)]="name"/>
+
+<hr/>
+
+<h2>Diretivas de atributos</h2>
+<div [ngClass]="{' teste ' : age > 32 }">Classes condicionais</div>
+
+<div [ngStyle]="{
+  color: age > 35 ? 'green' : 'red',
+  'font-size': age > 35 ? '20px' : '10px'
+  }
+">Estilo dinamico</div>
