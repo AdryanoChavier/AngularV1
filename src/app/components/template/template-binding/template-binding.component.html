@@ -1,0 +1,38 @@
+<h2>Template</h2>
+<h3>Tex Interpolation</h3>
+{{name}} - {{age}}
+<p>{{ condition }}</p>
+
+<hr/>
+
+<h2>Property binding</h2>
+<!-- <element [property]="value"></element>-->
+<button [disabled]="Disable">Button</button>
+<!-- <img [src]="srcValue" [alt]="name" [title]="name"  /> -->
+
+<hr/>
+
+<h2>Attribute binding</h2>
+
+<!-- <element [attr.attribute-you-are-targeting]='value'></element> -->
+
+<p [attr.title]='name' [attr.aria-label]="name">Dener Troquatte</p>
+<hr/>
+<h2>Class and Style binding</h2>
+<p [class.teste]="age > 32" [class.red]="age < 32">{{name}}</p>
+
+<p [style.text-decoration]="isTexDecoration">{{age}}</p>
+<hr/>
+<h2>Event binding</h2>
+
+<!--
+  <element
+      (TargetEventName)='TemplateStatement'></element>
+-->
+<button (click)="sum()" >+</button>
+<button (click)="sub()" >-</button>
+<input (keydown.shift.t)="OnKeyDown($event)">
+
+<div style="background: red; width:30px; height: 30px; margin-top: 30px;" (mousemove)="OnMouseEvent($event)"></div>
+<hr/>
+<h2>Two-way binding</h2>
