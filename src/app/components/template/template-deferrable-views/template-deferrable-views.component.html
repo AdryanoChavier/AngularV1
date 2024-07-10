@@ -77,7 +77,7 @@
 
 <h2>Defer when</h2>
 <button (click)="isTrue = true"> Add True </button>
-@defer(when isTrue) {
+@defer(when Data | async) {
   <p>When</p>
   <app-new-component/>
 }@placeholder{

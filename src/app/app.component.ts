@@ -1,3 +1,4 @@
+import { SignalsComponent } from './components/signals/signals/signals.component';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -9,14 +10,15 @@ import { TemplateDeferrableViewsComponent } from './components/template/template
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TemplateDeferrableViewsComponent,TemplateControlFlowComponent,TemplateVariablesComponent,TemplateBindingComponent, NewComponentComponent,CommonModule,RouterOutlet],
+  imports: [SignalsComponent,TemplateDeferrableViewsComponent,TemplateControlFlowComponent,TemplateVariablesComponent,TemplateBindingComponent, NewComponentComponent,CommonModule,RouterOutlet],
   template: ` <!-- <router-outlet />-->
   <!--<app-new-component/>-->
    <!-- <app-template-binding/> -->
    <!-- <app-template-variables/> -->
    <!-- <app-template-control-flow/> -->
+   <!-- <app-template-deferrable-views/> -->
   <h1>Curso de Angular</h1>
-<app-template-deferrable-views/>
+  <app-signals/>
  `,
 })
 export class AppComponent {
