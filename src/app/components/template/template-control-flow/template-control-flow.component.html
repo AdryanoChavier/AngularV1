@@ -1,0 +1,93 @@
+<h2>Control Flow</h2>
+
+<h3>IF</h3>
+<!--Forma Nova-->
+@if (isTrue){Sim é 1 === 1}@else{Não está correto}
+
+<!--Forma antiga-->
+<ng-container *ngIf="isTrue; else isFalse">
+  <p>Adryano</p>
+  <p>Mateus</p>
+</ng-container>
+<ng-template #isFalse>Não esta correto</ng-template>
+
+<hr />
+<h3>For</h3>
+<!--Forma Nova-->
+@if(Data | async; as data){
+<ul>
+  @for(item of data; track item){
+  <li>{{ item }}</li>
+  }
+</ul>
+}@else {<p>Carregando...</p>}
+
+
+@for(item of Data | async; track item){<li>{{ item }}</li>}
+
+<hr />
+<h3>For e seus valores</h3>
+<!--Forma nova-->
+@for(
+  item of itens; track item.name;
+  let i = $index;
+  let c = $count;
+  let f = $first;
+  let l = $last;
+  let e = $even;
+  let o = $odd;
+  ){
+    <p>{{item.name}}</p>
+    <p>index - {{i}}</p>
+    <p>count - {{c}}</p>
+    <p>first - {{f}}</p>
+    <p>last - {{l}}</p>
+    <p>even - {{e}}</p>
+    <p>odd - {{o}}</p>
+  }
+  <hr />
+<ng-container
+    *ngFor="let item of itens;
+      let i = index;
+      let c = count;
+      let f = first;
+      let l = last;
+      let e = even;
+      let o = odd;
+      trackBy: trackByFn">
+
+        <p>{{item.name}}</p>
+        <p>index - {{i}}</p>
+        <p>count - {{c}}</p>
+        <p>first - {{f}}</p>
+        <p>last - {{l}}</p>
+        <p>even - {{e}}</p>
+        <p>odd - {{o}}</p>
+</ng-container>
+
+<input #name type="text">
+<button (click)="addNewName(name.value)">Add Name</button>
+
+<hr />
+<h3>For - empty</h3>
+<!--Forma nova-->
+<ul>
+  @for(item of itens;track item.name){
+    <li>{{item.name}}</li>
+  }@empty {
+    <li>Não contém valores</li>
+  }
+</ul>
+<hr />
+<h3>Switch-Case</h3>
+@switch (condicao) {
+  @case('A'){
+  <p>Sim sua letra é: A</p>
+  }
+  @case('B'){
+    <p>Sim sua letra é: B</p>
+    }
+  @default {
+    <P>Sua letra é: {{condicao}}</P>
+  }
+}

@@ -1,0 +1,89 @@
+<h2 #trigger>Deferrable Views</h2>
+
+<!--
+  on - especifica um condição de acionador usando um acionador da lista.
+  (idle, timer, viewport, interaction, hover, immediate, prefetch)
+
+  when - especifica um condicao imperativa como uma expressão que retonar
+  um booleano. Quando esta expressão se torna verdadeira, o espaço reservado é
+  trocado pelo conteúdo carregado lentamente (o que pode ser uma operação assíncrona se as
+  dependencias precisarem ser buscadas).
+
+  Nota> Varios on triggers são sempre condições OR. Da mesma forma, on misturado
+  com when também são condições OR.
+-->
+<h2>Defer On</h2>
+  @defer(on idle) {
+    <app-new-component/>
+  }@placeholder{
+      <p>Mostrar antes de carregar algo.</p>
+    }@loading {
+      <p>Loading...</p>
+    }@error{
+      <p>Loading Failed :(</p>
+    }
+
+  @defer(on timer(5s)) {
+    <app-new-component/>
+  }@placeholder{
+      <p>Mostrar antes de carregar algo.</p>
+    }@loading {
+      <p>Loading...</p>
+    }@error{
+      <p>Loading Failed :(</p>
+    }
+<!--Viewport so vai carregar quando o scroll estiver na posicao dele-->
+    @defer(on viewport) {
+      <app-new-component/>
+    }@placeholder{
+        <p>Mostrar antes de carregar algo.</p>
+      }@loading {
+        <p>Loading...</p>
+      }@error{
+        <p>Loading Failed :(</p>
+      }
+<!--So é acionado quando fazer intereção com algo-->
+@defer(on interaction(trigger)) {
+      <app-new-component/>
+    }@placeholder{
+        <p>Mostrar antes de carregar algo.</p>
+      }@loading {
+        <p>Loading...</p>
+      }@error{
+        <p>Loading Failed :(</p>
+      }
+<!--Passar o mouse-->
+@defer(on hover) {
+      <app-new-component/>
+    }@placeholder{
+        <p>Mostrar antes de carregar algo.</p>
+      }@loading {
+        <p>Loading...</p>
+      }@error{
+        <p>Loading Failed :(</p>
+      }
+<!--Vai deixar carregado porem so vai aparecer quando tiver uma interação-->
+@defer(on interaction; prefetch on idle) {
+      <app-new-component/>
+    }@placeholder{
+        <p>Mostrar antes de carregar algo.</p>
+      }@loading {
+        <p>Loading...</p>
+      }@error{
+        <p>Loading Failed :(</p>
+      }
+
+<hr/>
+
+<h2>Defer when</h2>
+<button (click)="isTrue = true"> Add True </button>
+@defer(when isTrue) {
+  <p>When</p>
+  <app-new-component/>
+}@placeholder{
+    <p>Mostrar antes de carregar algo.</p>
+  }@loading {
+    <p>Loading...</p>
+  }@error{
+    <p>Loading Failed :(</p>
+  }

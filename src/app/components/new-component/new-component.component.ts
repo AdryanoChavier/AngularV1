@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './new-component.component.scss'
 })
 export class NewComponentComponent {
+  public name = 'New Component'
 
 }
